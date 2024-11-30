@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Lista Personalizada de Ingresos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Lista Personalizada de Ingresos</h1>
+<form action="/ingresos/filtrar" method="get">
+    <label for="categoria">Categoria:</label>
+    <select id="categoria" name="categoria.id">
+        <option value="" selected>Todas</option>
+        <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>
+    </select>
+
+    <label for="fechaInicio">Fecha Inicio:</label>
+    <input type="date" id="fechaInicio" name="fechaInicio">
+
+    <label for="fechaFin">Fecha Fin:</label>
+    <input type="date" id="fechaFin" name="fechaFin">
+
+    <button type="submit">Filtrar</button>
+</form>
+
+<h2>Resultados</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Monto</th>
+        <th>Fecha</th>
+        <th>Categoría</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ingreso : ${ingresos}">
+        <td th:text="${ingreso.id}"></td>
+        <td th:text="${ingreso.descripcion}"></td>
+        <td th:text="${ingreso.monto}"></td>
+        <td th:text="${ingreso.fecha}"></td>
+        <td th:text="${ingreso.categoria.nombre}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

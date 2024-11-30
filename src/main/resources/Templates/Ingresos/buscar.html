@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Buscar Ingresos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Buscar Ingresos</h1>
+<form action="/ingresos/buscar" method="get">
+    <label for="descripcion">Descripcion:</label>
+    <input type="text" id="descripcion" name="descripcion">
+
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" name="fecha">
+
+    <button type="submit">Buscar</button>
+</form>
+
+<h2>Resultados</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Monto</th>
+        <th>Fecha</th>
+        <th>Categoría</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ingreso : ${resultados}">
+        <td th:text="${ingreso.id}"></td>
+        <td th:text="${ingreso.descripcion}"></td>
+        <td th:text="${ingreso.monto}"></td>
+        <td th:text="${ingreso.fecha}"></td>
+        <td th:text="${ingreso.categoria.nombre}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

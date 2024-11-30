@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Lista de Todos los Ingresos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Lista de Todos los Ingresos</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Monto</th>
+        <th>Fecha</th>
+        <th>Categoría</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ingreso : ${ingresos}">
+        <td th:text="${ingreso.id}"></td>
+        <td th:text="${ingreso.descripcion}"></td>
+        <td th:text="${ingreso.monto}"></td>
+        <td th:text="${ingreso.fecha}"></td>
+        <td th:text="${ingreso.categoria.nombre}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

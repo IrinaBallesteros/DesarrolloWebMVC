@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Gastos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Listado de Gastos</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Monto</th>
+        <th>Categoría</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="gasto : ${gastos}">
+        <td th:text="${gasto.id}"></td>
+        <td th:text="${gasto.descripcion}"></td>
+        <td th:text="${gasto.monto}"></td>
+        <td th:text="${gasto.categoria.nombre}"></td>
+    </tr>
+    </tbody>
+</table>
+<a href="/gastos/agregar">Agregar Nuevo Gasto</a>
+</body>
+</html>

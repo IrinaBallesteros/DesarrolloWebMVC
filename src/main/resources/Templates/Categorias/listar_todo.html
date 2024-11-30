@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Categorías</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Listado de Categorías</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="categoria : ${categorias}">
+        <td th:text="${categoria.id}"></td>
+        <td th:text="${categoria.nombre}"></td>
+    </tr>
+    </tbody>
+</table>
+<a href="/categorias/agregar">Agregar Nueva Categoría</a>
+</body>
+</html>

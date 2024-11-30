@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Lista Personalizada</title>
+</head>
+<body>
+<h1>Lista Personalizada de Usuarios</h1>
+<link rel="stylesheet" href="/css/styles.css">
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="usuario : ${usuariosFiltrados}">
+        <td th:text="${usuario.id}"></td>
+        <td th:text="${usuario.nombre}"></td>
+        <td th:text="${usuario.correo}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
